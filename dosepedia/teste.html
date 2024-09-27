@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="navicon.ico" type="image/x-icon">
+    <title>Dosepédia</title>
+
+    <script>
+        function topmenu() {
+            var x = document.getElementById("idmenu");
+            if (x.className === "menu") {
+                x.className += "responsive";
+            } else {
+                x.className = "menu";
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background: rgba(228, 228, 228, 0.493)
+        }
+        .titulo {
+            color: white;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 50px;
+            height: 70px;
+            padding-left: 30px solid rgba(72, 218, 255, 0.562);
+            border: 22px solid rgba(72, 218, 255, 0.562);
+            border-left-width: 100px;
+            margin: -5px;
+            background-color: rgba(72, 218, 255, 1);
+            outline: 5px solid white;
+        }
+        .menu {
+            display: block;
+            color:white;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 15px;
+            height: 18px;
+            padding: 14px 20px;
+            border: 0px solid rgba(72, 218, 255, 0.562);
+            border-left-width: 1200px;
+            margin: -5px;
+            margin-top: 10px;
+            background-color: rgba(72, 218, 255, 1);
+            outline: 5px solid rgb(255, 255, 255);
+        }
+        .menu a {
+            display: flexbox;
+        }
+        .menu a:hover {
+            background-color: #ffffff;
+            color: rgb(255, 255, 255);
+        }
+        .menu a.active {
+            background-color: #aa0404;
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="titulo">Dosepédia</div>
+    <div class="menu" id="idmenu">
+        <a href="#home">Home</a>
+        <a href="#adulto">Adulto</a>
+        <a href="#pediatrico">Pediátrico</a>
+        <a href="javascript:void(0);" class="icon" onclick="topmenu()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="navicon.ico" type="image/x-icon">
+    <title>Dosepédia</title>
+
+    <script>
+        function topmenu() {
+            var x = document.getElementById("idmenu");
+            if (x.className === "menu") {
+                x.className += "responsive";
+            } else {
+                x.className = "menu";
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background: rgba(228, 228, 228, 0.493)
+        }
+        .titulo {
+            color: white;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 50px;
+            height: 70px;
+            padding-left: 30px solid rgba(72, 218, 255, 0.562);
+            border: 18px solid rgba(72, 218, 255, 0.562);
+            border-left-width: 100px;
+            margin: -5px;
+            background-color: rgba(72, 218, 255, 1);
+            outline: 5px solid white;
+        }
+        .menu {
+            background-color: rgba(72, 218, 255, 1);
+            overflow: hidden;
+            margin-top: 10px;
+            margin-left: -5px;
+            margin-right: -5px;
+            outline: 5px solid white;
+        }
+        .menu a {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            float: right;
+            display: block;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+        .menu a:hover {
+            background-color: #ffffff;
+            color: rgba(72, 218, 255, 1);
+        }
+        .menu a.active {
+            background-color: rgb(118, 228, 255);
+            color: white;
+        }
+        .menu .icon {
+            display: none;
+        }
+        a {
+            border-left: 5px solid #ffffff;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="titulo">Dosepédia</div>
+    <div class="menu" id="idmenu">
+        <a href="file:///C:/Users/Caio/Desktop/Caio/htmlcss/dosepedia/pediatrico.html">Pediátrico</a>
+        <a href="file:///C:/Users/Caio/Desktop/Caio/htmlcss/dosepedia/adulto.html">Adulto</a>
+        <a href="file:///C:/Users/Caio/Desktop/Caio/htmlcss/dosepedia/home.html">Home</a>
+        <a href="javascript:void(0);" class="icon" onclick="topmenu()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+</body>
+</html>
