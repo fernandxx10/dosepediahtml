@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="navicon.ico" type="image/x-icon">
+    <title>Dosepédia</title>
+
+    <script>
+        
+        function calc() {
+            if (document.getElementById(peso) !== "" &&
+                document.getElementById(quantidade) !== "" &&
+                document.getElementById(volume) !== "" &&
+                document.getElementById(dosemcg) !== "") {
+
+                var p = parseFloat(document.getElementById("peso").value);
+                var q = parseFloat(document.getElementById("quantidade").value);
+                var v = parseFloat(document.getElementById("volume").value);
+                var dmcg = parseFloat(document.getElementById("dosemcg").value);
+
+                var mlh = (dmcg * p * v * 60) / (q * 1000);
+                document.getElementById("dosemlh").value = parseFloat(mlh.toFixed(5));
+                return mlh;
+            }
+            else {
+                return false;
+            }
+        }
+        
+
+    </script>
+
+    <style>
+        body {
+            background-image: url("file:///C:/Users/Caio/Desktop/Caio/htmlcss/dosepedia/fundo.jpg");
+            height: auto;
+            width: auto;
+            max-width: 100% ;
+            background-position-x: center;
+            background-repeat: no-repeat;
+        }
+        .titulo {
+            color: white;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 60px;
+            height: 70px;
+            padding-left: 30px solid rgba(0, 140, 255, 0);
+            border: 18px solid rgba(0, 140, 255, 0);
+            border-left-width: 100px;
+            margin: -5px;
+            background-color: rgba(0, 140, 255, 1);
+            outline: 5px solid white;
+        }
+        .menu {
+            background-color: rgba(0, 140, 255, 0.9);
+            overflow: hidden;
+            margin-top: 10px;
+            margin-left: -5px;
+            margin-right: -5px;
+            margin-bottom: 50px;
+            outline: 5px solid white;
+        }
+        .menu a {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            float: right;
+            display: block;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+        .menu a:hover {
+            background-color: rgba(255, 255, 255, 1);
+            color: rgba(0, 140, 255, 1);
+        }
+        a {
+            border-left: 5px solid #ffffff;
+        }
+        .tabela {
+            color: white;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 18px;
+            padding: 14px;
+            border-radius: 5px;
+            text-align: center;
+            margin: 15px 300px;
+            background-color: rgba(0, 140, 255, 0.85);
+            outline: 4px solid white;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="titulo">Dosepédia</div>
+
+    <div class="menu" id="idmenu">
+        <a href="file:///C:/Users/Caio/Desktop/Caio/htmlcss/dosepedia/pediatrico.html">Pediátrico</a>
+        <a href="file:///C:/Users/Caio/Desktop/Caio/htmlcss/dosepedia/adulto.html">Adulto</a>
+        <a href="file:///C:/Users/Caio/Desktop/Caio/htmlcss/dosepedia/home.html">Home</a>
+    </div>
+
+    <div class="tabela">
+        Informe o peso do paciente:
+        <input type="number" id="peso" name="peso" min="0"
+        oninput="calc()" onchange="calc()">
+        Kg
+    </div>     
+
+    <div class="tabela">
+        Informe a quantidade do medicamento:
+        <input type="number" id="quantidade" name="quantidade" min="0"
+        oninput="calc()" onchange="calc()">
+        mg
+    </div>
+
+    <div class="tabela">
+        Informe o volume de diluição:
+        <input type="number" id="volume" name="volume" min="0" 
+        oninput="calc()" onchange="calc()">
+        ml
+    </div>
+
+    <div class="tabela">
+        Informe a dose em mcg/Kg/min:
+        <input type="number" id="dosemcg" name="dosemcg"
+        oninput="calc()" onchange="calc()">
+        mcg/Kg/min
+    </div>
+
+    <div class="tabela">
+        Dose em ml/h:
+        <input type="number" id="dosemlh" name="dosemlh" readonly>
+        ml/h
+    </div>  
+        
+</body>
+</html>
