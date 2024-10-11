@@ -90,10 +90,23 @@
             font-size: 18px;
             padding: 14px;
             border-radius: 5px;
-            text-align: center;
             margin: 15px 300px;
             background-color: rgba(0, 140, 255, 0.85);
             outline: 4px solid white;
+        }
+        input {
+            text-align: center;
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .left {
+            margin-left: 100px;
+            float: left;
+            min-width: 400px;
+            max-width: 400px;
         }
 
     </style>
@@ -111,52 +124,52 @@
     </div>
 
     <div class="tabela">
-        Informe o peso do paciente:
-        <input type="number" id="peso" name="peso" min="0"
+        <span class="left">Informe o peso do paciente:</span>
+        <span><input type="number" id="peso" name="peso" min="0"
         oninput="calc()" onchange="calc()">
-        Kg
+        Kg</span>
     </div>     
 
     <div class="tabela">
-        Informe a quantidade do medicamento:
-        <input type="number" id="quantidade" name="quantidade" min="0"
+        <span class="left">Informe a quantidade do medicamento:</span>
+        <span><input type="number" id="quantidade" name="quantidade" min="0"
         oninput="calc()" onchange="calc()">
-        mg
+        mg</span>
     </div>
 
     <div class="tabela">
-        Informe o volume de diluição:
-        <input type="number" id="volume" name="volume" min="0" 
+        <span class="left">Informe o volume de diluição:</span>
+        <span><input type="number" id="volume" name="volume" min="0" 
         oninput="calc()" onchange="calc()">
-        ml
+        ml</span>
     </div>
 
     <div class="tabela">
-        Informe a dose em ml/h:
-        <input type="number" id="dosemlh" name="dosemlh" min="0"
+        <span class="left">Informe a dose em ml/h:</span>
+        <span><input type="number" id="dosemlh" name="dosemlh" min="0"
         oninput="calc()" onchange="calc()">
-        ml/h
+        ml/h</span>
     </div>
     
     <div class="tabela">
-        Densidade da solução:
-        <input type="number" id="densidade" name="densidade" 
+        <span class="left">Densidade da solução:</span>
+        <span><input type="number" id="densidade" name="densidade" 
         oninput="calc()" onchange="calc()" readonly>
-        mg/ml
+        mg/ml</span>
     </div>
 
     <div class="tabela">
-        Dose em mg/h:
-        <input type="number" id="dosemgh" name="dosemgh"
+        <span class="left">Dose em mg/h:</span>
+        <span><input type="number" id="dosemgh" name="dosemgh"
         oninput="calc()" onchange="calc()" readonly>
-        mg/h
+        mg/h</span>
     </div>
     
     <div class="tabela">
-        Dose em mcg/Kg/min:
-        <input type="number" id="dosemcg" name="dosemcg"
+        <span class="left">Dose em mcg/Kg/min:</span>
+        <span><input type="number" id="dosemcg" name="dosemcg"
         oninput="calc()" onchange="calc()" readonly>
-        mcg/Kg/min
+        mcg/Kg/min</span>
     </div>
     
 </body>
