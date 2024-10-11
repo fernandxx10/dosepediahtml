@@ -8,27 +8,78 @@
 
     <script>
         
-        function calc() {
+        function calc1() {
             if (document.getElementById(peso) !== "" &&
-                document.getElementById(quantidade) !== "" &&
-                document.getElementById(volume) !== "" &&
-                document.getElementById(dosemlh) !== "") {
+                document.getElementById(dose) !== "" &&
+                document.getElementById(ndose) !== "" ) {
 
                 var p = parseFloat(document.getElementById("peso").value);
-                var q = parseFloat(document.getElementById("quantidade").value);
-                var v = parseFloat(document.getElementById("volume").value);
-                var dmlh = parseFloat(document.getElementById("dosemlh").value);
+                var d = parseFloat(document.getElementById("dose").value);
+                var nd = parseFloat(document.getElementById("ndose").value);
 
-                var d = q / v;
-                document.getElementById("densidade").value = parseFloat(d.toFixed(5));
+                var dp = (p * d) / nd;
+                document.getElementById("dosepre").value = parseFloat(dp.toFixed(5));
 
-                var mgh = d * dmlh;
-                document.getElementById("dosemgh").value = parseFloat(mgh.toFixed(5));
-
-                var mcg = (mgh * 1000/60) / p;
-                document.getElementById("dosemcg").value = parseFloat(mcg.toFixed(5));
-                return mcg;
+                return dp;
             }
+
+            else {
+                return false;
+            }
+        }
+
+        function calc2() {
+            if (document.getElementById(apdose) !== "" &&
+                document.getElementById(voldil) !== "" ) {
+
+                var apd = parseFloat(document.getElementById("apdose").value);
+                var vd = parseFloat(document.getElementById("voldil").value);
+                
+                var dad = (vd * calc1())/apd;
+                document.getElementById("dosead").value = parseFloat(dad.toFixed(5));
+
+                return dad;
+            }
+
+            else {
+                return false;
+            }
+        }
+
+        function calc3() {
+            if (document.getElementById(apdose) !== "" &&
+                document.getElementById(volred) !== "" ) {
+
+                var apd = parseFloat(document.getElementById("apdose").value);
+                var vr = parseFloat(document.getElementById("volred").value);
+                
+                var dra = (vr * calc1())/apd;
+                document.getElementById("doseredad").value = parseFloat(dra.toFixed(5));
+
+                return dra;
+            }
+
+            else {
+                return false;
+            }
+        }
+
+        function calch() {
+            if (document.getElementById(ndose) !== "" ) {
+                var nd = parseFloat(document.getElementById("ndose").value);
+                
+                var h = 24/nd;
+
+                if (nd > 0) {
+                    document.getElementById("hora").innerHTML = Math.round(h)+ "h em " + Math.round(h)+"h";
+                    return h;
+                }
+                else {
+                    document.getElementById("hora").innerHTML = "";
+                    return false;
+                }
+            }
+            
             else {
                 return false;
             }
@@ -90,13 +141,23 @@
             font-size: 18px;
             padding: 14px;
             border-radius: 5px;
-            text-align: center;
             margin: 15px 300px;
             background-color: rgba(0, 140, 255, 0.85);
             outline: 4px solid white;
         }
         input {
             text-align: center;
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .left {
+            margin-left: 100px;
+            float: left;
+            min-width: 400px;
+            max-width: 400px;
         }
 
     </style>
@@ -114,65 +175,65 @@
     </div>
 
     <div class="tabela">
-        Informe o peso do paciente:
+        <span class="left">Informe o peso do paciente:</span>
         <input type="number" id="peso" name="peso" min="0"
-        oninput="calc()" onchange="calc()">
+        oninput="calc1(),calc2(),calc3()" onchange="calc1(),calc2(),calc3()">
         Kg
     </div>     
 
     <div class="tabela">
-        Informe a dose do medicamento:
-        <input type="number" id="quantidade" name="quantidade" min="0"
-        oninput="calc()" onchange="calc()">
+        <span class="left">Informe a dose do medicamento:</span>
+        <input type="number" id="dose" name="dose" min="0"
+        oninput="calc1(),calc2(),calc3()" onchange="calc1(),calc2(),calc3()">
         mg/Kg/dia
     </div>
 
     <div class="tabela">
-        Número de doses por dia:
-        <input type="number" id="volume" name="volume" min="0" 
-        oninput="calc()" onchange="calc()">
-        **CONTA DE H EM H**
+        <span class="left">Número de doses por dia:</span>
+        <input type="number" id="ndose" name="ndose" min="0" 
+        oninput="calc1(),calc2(),calc3(),calch()" onchange="calc1(),calc2(),calc3(),calch()">
+        <span id="hora" value=""></span>
     </div>
 
     <div class="tabela">
-        Dose pré-diluída prescrita:
-        <input type="number" id="dosemlh" name="dosemlh" min="0"
-        oninput="calc()" onchange="calc()" readonly>
+        <span class="left">Dose pré-diluída prescrita:</span>
+        <input type="number" id="dosepre" name="dosepre" min="0"
+        oninput="calc1(),calc2(),calc3()" onchange="calc1(),calc2(),calc3()" readonly>
         mg/dose
     </div>
     
     <div class="tabela">
-        Apresentação de dose disponível:
-        <input type="number" id="densidade" name="densidade" 
-        oninput="calc()" onchange="calc()" >
+        <span class="left">Apresentação de dose disponível:</span>
+        <input type="number" id="apdose" name="apdose" 
+        oninput="calc1(),calc2(),calc3()" onchange="calc1(),calc2(),calc3()" >
         mg
     </div>
 
     <div class="tabela">
-        Volume de diluião da dose disponível:
-        <input type="number" id="dosemgh" name="dosemgh"
-        oninput="calc()" onchange="calc()">
+        <span class="left">Volume de diluião da dose disponível:</span>
+        <input type="number" id="voldil" name="voldil"
+        oninput="calc1(),calc2(),calc3()" onchange="calc1(),calc2(),calc3()">
         ml
     </div>
     
     <div class="tabela">
-        Dose a ser administrada:
-        <input type="number" id="dosemcg" name="dosemcg"
-        oninput="calc()" onchange="calc()" readonly>
+        <span class="left">Dose a ser administrada:</span>
+        <input type="number" id="dosead" name="dosead"
+        oninput="calc1(),calc2(),calc3()" onchange="calc1(),calc2(),calc3()" readonly>
         ml/dose
     </div>
 
     <div class="tabela">
-        Informe o volume de rediluição:
-        <input type="number" id="dosemcg" name="dosemcg"
-        oninput="calc()" onchange="calc()">
+        <span class="left">Informe o volume de rediluição:</span>
+        <input type="number" id="volred" name="volred"
+        oninput="calc1(),calc2(),calc3()" onchange="calc1(),calc2(),calc3()">
         ml
     </div>
 
     <div class="tabela">
-        Dose rediluída a ser administrada:
-        <input type="number" id="dosemcg" name="dosemcg"
-        oninput="calc()" onchange="calc()" readonly>
+        <span class="left">Dose rediluída a ser administrada:</span>
+        <input type="number" id="doseredad" name="doseredad"
+        oninput="calc1(),calc2(),calc3()" onchange="calc1(),calc2(),calc3()" readonly>
         ml/dose
     </div>
     
