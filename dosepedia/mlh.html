@@ -27,7 +27,27 @@
                 return false;
             }
         }
-        
+
+        input.onfocus = function () {
+        };
+
+        for (let option of medicamentos.options) {
+            option.onclick = function () {
+                input.value = option.value;
+            }
+        };
+
+        input.oninput = function() {
+            var text = input.value.toUpperCase();
+            for (let option of medicamentos.options) {
+                if(option.value.toUpperCase().indexOf(text) > -1){
+                    option.style.display = "block";
+                }
+                else{
+                    option.style.display = "none";
+                }
+            };
+        }
 
     </script>
 
@@ -565,6 +585,19 @@
         <a href="https://fernandxx10.github.io/dosepediahtml/dosepedia/pediatrico.html">Pediátrico</a>
         <a href="https://fernandxx10.github.io/dosepediahtml/dosepedia/adulto.html">Adulto</a>
         <a href="https://fernandxx10.github.io/dosepediahtml/dosepedia/">Home</a>
+    </div>
+
+    <div class="tabela">
+        <span class="left">Nome do medicamento:</span>
+        <span>
+            <input type="text" spellcheck="false" list="medicamentos" id="med">
+            <datalist id="medicamentos">
+                <option value="Amoxilina+Clavulanato">Amoxilina+Clavulanato</option>
+                <option value="Ceftriaxona">Ceftriaxona</option>
+                <option value="Oxacilina">Oxacilina</option>
+                <option value="Cefalexina">Cefalexina</option>
+            </datalist>
+        </span>
     </div>
 
     <div class="tabela">
